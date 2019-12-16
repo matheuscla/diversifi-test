@@ -11,7 +11,7 @@ import {
   Submit
 } from './styles'
 
-const AddressForm = () => (
+const AddressForm = ({ accounts, onInputChange }) => (
   <Container>
     <Header>
       <h1>Add Address</h1>
@@ -22,12 +22,16 @@ const AddressForm = () => (
 
     <Form>
       <InputsContainer>
-        <Input placeholder='Account address' />
-        <RemoveBtn>REMOVE</RemoveBtn>
-        <Input placeholder='Account address' />
-        <RemoveBtn>REMOVE</RemoveBtn>
-        <Input placeholder='Account address' />
-        <RemoveBtn>REMOVE</RemoveBtn>
+        {accounts.map((account, index) => (
+          <div key={index}>
+            <Input 
+              onChange={e => onInputChange(e.target.value, index)} 
+              placeholder='Account address' 
+            />
+            
+            <RemoveBtn>REMOVE</RemoveBtn>
+          </div>
+        ))}
       </InputsContainer>
 
       <Submit>SEARCH ADDRESS</Submit>
