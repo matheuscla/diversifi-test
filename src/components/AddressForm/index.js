@@ -11,7 +11,7 @@ import {
   Submit
 } from './styles'
 
-const AddressForm = ({ accounts, addAccount, onInputChange, removeAccount }) => (
+const AddressForm = ({ accounts, addAccount, onInputChange, removeAccount, searchAccount }) => (
   <Container>
     <Header>
       <h1>Add Address</h1>
@@ -20,7 +20,7 @@ const AddressForm = ({ accounts, addAccount, onInputChange, removeAccount }) => 
       </button>
     </Header>
 
-    <Form>
+    <Form onSubmit={searchAccount}>
       <InputsContainer>
         {accounts.map((account, index) => (
           <div key={index}>
