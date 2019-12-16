@@ -7,6 +7,7 @@ import AddressForm from './components/AddressForm'
 function App() {
   const [accounts, setAccounts] = useState([''])
   const [wallets, setWallets] = useState([])
+  const [ethUSD, setEthUSD] = useState(0)
 
   const handleInputChange = async (value, index) => {
     const updatedAccounts = [ ...accounts]
@@ -24,6 +25,7 @@ function App() {
     e.preventDefault()
 
     getAccounts()
+    getEthPrice()
   }
 
   const getAccounts = async () => {
@@ -37,6 +39,12 @@ function App() {
 
       setWallets(newWallets)
     }
+  }
+
+  const getEthPrice = async () => {
+    const { data } = await axios.get('https://api.etherscan.io/api?module=stats&action=ethprice&apikey=SYZPKC5JIC5HQWXMWJEN2Y9Z2CAEJRQKID')
+    
+    setEthUSD(data.result.ethusd)
   }
 
 
