@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import Header from './components/Header'
 import AddressForm from './components/AddressForm'
+import WalletList from './components/WalletList'
 
 function App() {
   const [accounts, setAccounts] = useState([''])
@@ -47,7 +48,6 @@ function App() {
     setEthUSD(data.result.ethusd)
   }
 
-
   return (
     <>
       <Header />
@@ -58,6 +58,7 @@ function App() {
         removeAccount={handleRemoveAccount}
         searchAccount={handleSearch}
       />
+      <WalletList />
     </>
   )
 }
