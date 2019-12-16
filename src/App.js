@@ -1,8 +1,10 @@
 import React from 'react'
 
+import Header from './components/Header'
+
 function App() {
   return (
-    <h5>Add Address</h5>
+    <Header />
   )
 }
 
