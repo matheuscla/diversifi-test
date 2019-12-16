@@ -9,17 +9,17 @@ import {
   USD
 } from './styles'
 
-const WalletCard = () => (
+const WalletCard = ({ wallet, ethUSD }) => (
   <Container>
-    <small>0x32be343b94f860124dc4fee278fdcbd38c102d88</small>
+    <small>{wallet.account_number}</small>
 
     <BadgeContainer>
       <Brand>ETHERIUM</Brand>
       <Badge>ETH</Badge>
     </BadgeContainer>
 
-    <EthValue>1000.100</EthValue>
-    <USD>$ 100.00</USD>
+    <EthValue>{wallet.balance}</EthValue>
+    <USD>{`$ ${(wallet.balance * ethUSD).toFixed(2)} USD`}</USD>
   </Container>
 )
 

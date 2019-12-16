@@ -2,12 +2,15 @@ import React from 'react'
 
 import WalletCard from '../WalletCard'
 
-import { Container } from './styles'
+import { Container, WalletsContainer } from './styles'
 
-const WalletList = () => (
+const WalletList = ({ wallets, ethUSD }) => (
   <Container>
     <h2>Wallets</h2>
-    <WalletCard />
+
+    <WalletsContainer>
+      {wallets.map(wallet => <WalletCard key={wallet.account_number} wallet={wallet} ethUSD={ethUSD} />)}
+    </WalletsContainer>
   </Container>
 ) 
 

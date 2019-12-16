@@ -9,6 +9,12 @@ export const Container = styled.div`
     font-weight: 600;
     font-size: 24px;
     line-height: 24px;
-    margin-top: 40px;
+    margin: 40px 0;
   }
+`
+
+export const WalletsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
 `

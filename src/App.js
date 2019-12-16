@@ -58,7 +58,8 @@ function App() {
         removeAccount={handleRemoveAccount}
         searchAccount={handleSearch}
       />
-      <WalletList />
+      
+      <WalletList wallets={wallets} ethUSD={ethUSD}/>
     </>
   )
 }
