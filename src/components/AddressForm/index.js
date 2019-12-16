@@ -27,6 +27,7 @@ const AddressForm = ({ accounts, addAccount, onInputChange, removeAccount, searc
             <Input 
               onChange={e => onInputChange(e.target.value, index)} 
               placeholder='Account address' 
+              required
             />
 
             <RemoveBtn 

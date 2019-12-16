@@ -5,7 +5,13 @@ export const Container = styled.div`
   border-radius: 4px;
   padding: 24px;
   height: 620px;
-  width: 618px;
+  width: 42%;
+
+  @media(max-width: 1100px) {
+    width: 100%;
+    margin-bottom: 40px;
+    height: 400px;
+  }
 `
 
 export const Header = styled.div`
@@ -35,16 +41,24 @@ export const Input = styled.input`
   border: 1px solid #E4E4E4;
   color: #C1C1C1;
   padding: 12px 16px;
-  width: 434px;
+  width: 462px;
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 24px;
+
+   @media(max-width: 1100px) {
+    width: 70%;
+  }
 `
 
 export const InputsContainer = styled.div`
   height: 450px;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 100%
+
+  @media(max-width: 1100px) {
+    height: 230px;
+  }
 `
 
 export const RemoveBtn = styled.button`

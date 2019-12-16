@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+import { MainContainer } from './styles/components'
+
 import Header from './components/Header'
 import AddressForm from './components/AddressForm'
 import WalletList from './components/WalletList'
@@ -51,15 +53,17 @@ function App() {
   return (
     <>
       <Header />
-      <AddressForm 
-        accounts={accounts} 
-        onInputChange={handleInputChange}
-        addAccount={handleAddAccount}
-        removeAccount={handleRemoveAccount}
-        searchAccount={handleSearch}
-      />
-      
-      <WalletList wallets={wallets} ethUSD={ethUSD}/>
+      <MainContainer>
+        <AddressForm 
+          accounts={accounts} 
+          onInputChange={handleInputChange}
+          addAccount={handleAddAccount}
+          removeAccount={handleRemoveAccount}
+          searchAccount={handleSearch}
+        />
+
+        <WalletList wallets={wallets} ethUSD={ethUSD}/>
+      </MainContainer>
     </>
   )
 }
