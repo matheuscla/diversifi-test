@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 import { MainContainer } from './styles/components'
 
@@ -34,14 +35,16 @@ function App() {
   const getAccounts = async () => {
     const { data } = await axios.get(`https://api.etherscan.io/api?module=account&action=balancemulti&address=${accounts.join(',')}&tag=latest&apikey=SYZPKC5JIC5HQWXMWJEN2Y9Z2CAEJRQKID`)
 
-    if (data.status == 1) {
-      const newWallets = data.result.map(wallet => ({
-        account_number: wallet.account,
-        balance: wallet.balance/1000000000000000000
-      }))
-
-      setWallets(newWallets)
+    if (data.status == 0) {
+      return toast.error('Account Address Invalid!')
     }
+
+    const newWallets = data.result.map(wallet => ({
+      account_number: wallet.account,
+      balance: wallet.balance/1000000000000000000
+    }))
+
+    setWallets(newWallets)
   }
 
   const getEthPrice = async () => {
