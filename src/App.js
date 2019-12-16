@@ -14,12 +14,18 @@ function App() {
     setAccounts(updatedAccounts)
   }
 
+  const handleAddAccount = () => setAccounts([...accounts, ''])
+  
+  const handleRemoveAccount = (idx) => setAccounts(accounts.filter((value, index) => index !== idx))
+
   return (
     <>
       <Header />
       <AddressForm 
         accounts={accounts} 
-        onInputChange={handleInputChange} 
+        onInputChange={handleInputChange}
+        addAccount={handleAddAccount}
+        removeAccount={handleRemoveAccount}
       />
     </>
   )

@@ -11,11 +11,11 @@ import {
   Submit
 } from './styles'
 
-const AddressForm = ({ accounts, onInputChange }) => (
+const AddressForm = ({ accounts, addAccount, onInputChange, removeAccount }) => (
   <Container>
     <Header>
       <h1>Add Address</h1>
-      <button>
+      <button type='button' onClick={addAccount}>
         <img src={addIcon} alt='Add address' />
       </button>
     </Header>
@@ -28,8 +28,13 @@ const AddressForm = ({ accounts, onInputChange }) => (
               onChange={e => onInputChange(e.target.value, index)} 
               placeholder='Account address' 
             />
-            
-            <RemoveBtn>REMOVE</RemoveBtn>
+
+            <RemoveBtn 
+              type='button' 
+              onClick={() => removeAccount(index)}
+            >
+              REMOVE
+            </RemoveBtn>
           </div>
         ))}
       </InputsContainer>
